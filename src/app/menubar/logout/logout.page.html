@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><b>
+
+      Logout
+    </b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-searchbar [(ngModel)]="byDiet" (keyup)="getItemByDietType(byDiet)"></ion-searchbar>
+
+
+  <ion-list>
+    <ion-radio-group value="biff">
+        <h3>Diet Type</h3>
+      <ion-item>
+        <ion-label>vegitarian</ion-label>
+        <ion-radio slot="start"[(ngModel)]="byDiet" onchange="getItemByDietType(byDiet)"  value="veg"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Non vegitarian</ion-label>
+        <ion-radio slot="start" [(ngModel)]="byDiet" onchange="getItemByDietType(byDiet)"  value="nonVeg"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Id</th>
+    <th>Department</th>
+    <th>Technology</th>
+    <th>Place</th>
+  </tr>
+
+
+  <tr *ngFor = "let list of itemsListDiet">
+
+
+    <td><img src="http://localhost:8000/{{list.image}}"></td>
+    <td>{{list.title}}</td>
+    <td>{{list.points}}</td>
+    <td>{{list.itemId}}</td>
+    <td>{{list.dietType}}</td>
+    <td>{{list.mealType}}</td>
+    <td>{{list.likes}}</td>
+    <td>{{list.description}}</td>
+    <td>{{list.content}}</td>
+    <td>{{list.availableTime}}</td>
+    <td>{{list.productionTime}}</td>
+  </tr>
+</table>
+
+
+
+<ion-searchbar [(ngModel)]="byMeal" (keyup)="getItemByMealType(byMeal)"></ion-searchbar>
+
+
+<tr *ngFor = "let list1 of itemsListMeal">
+
+
+  <td><img src="http://localhost:8000/{{list1.image}}"></td>
+  <td>{{list1.title}}</td>
+  <td>{{list1.points}}</td>
+  <td>{{list1.itemId}}</td>
+  <td>{{list1.dietType}}</td>
+  <td>{{list1.mealType}}</td>
+  <td>{{list1.likes}}</td>
+  <td>{{list1.description}}</td>
+  <td>{{list1.content}}</td>
+  <td>{{list1.availableTime}}</td>
+  <td>{{list1.productionTime}}</td>
+</tr>
+
+
+
+  <!-- <ion-row>
+    <ion-col *ngFor = "let list of itemsListMeal" size="6">
+      <ion-card  class="video-thumbnail" routerLink="/item-description">
+        <img src="http://localhost:8000/{{list.image}}">
+          <i style="color:rgb(245, 53, 53)"><ion-icon id="card" size="large" name="ellipse-sharp"></ion-icon></i>
+        <ion-card-content >
+          <b>{{list.title}}  &nbsp; {{list.points}} </b>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    </ion-row> -->
+
+
+
+
+
+
+
+ </ion-content>

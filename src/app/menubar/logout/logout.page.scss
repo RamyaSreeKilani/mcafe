@@ -1,0 +1,77 @@
+
+ .circular{
+    border-radius: 20px;
+    padding-left:2px;
+    padding-top:6px;
+    width: 26px;
+    height:26px;
+    }
+    table{
+      border: 4px;
+    }
+
+    .video-thumbnail {
+      margin: 0 auto;
+      display: inline-block;
+    }
+    .video-thumbnail img {
+      width: 800px;
+      height: 200px;
+    }
+
+
+
+    ion-searchbar,ion-card{
+      --ion-background-color:rgb(252, 252, 252);
+     }
+    #cart{
+      margin-left: 260px;
+    }
+     #filter{
+
+      margin-top: 10px;;
+      }
+    .video-thumbnail ion-icon{
+      zoom: 0.7;
+      position: absolute;
+    top: calc(6% - 20px);
+    left: calc(98% - 30px);
+    }
+    #meal{
+      --ion-background-color:rgb(208, 211, 212);
+      margin-top: 10px;
+    }
+    h4{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    ion-row{
+      margin-top: 20px;
+    }
+    ion-content{
+      --ion-background-color:rgb(218, 220, 221);
+    }
+    #top{
+    --ion-background-color:rgb(74, 193, 236);
+    }
+    b{
+      font-style: oblique;
+      color: black;
+      size: 10px;
+    }
+    #cart-btn {
+      position: relative;
+    }
+
+    #cart-badge {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+    }
+    .circular{
+      border-radius: 20px;
+      padding-left:2px;
+      padding-top:6px;
+      width: 26px;
+      height:26px;
+      }

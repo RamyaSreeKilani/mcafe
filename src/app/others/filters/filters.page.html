@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar id="top" >
+    <ion-title><b>Filters</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card>
+    <ion-item>
+  <ion-checkbox  [checked]='isFav' (ionChange)="favBox(isFav)"></ion-checkbox>
+  <ion-label>Favourites</ion-label>
+    </ion-item>
+
+    <h3>Meal Type</h3>
+    <ion-item *ngFor="let menu of menus; let i=index">
+      <ion-checkbox (ionChange)="addFilter(i)" [checked]='menu.isChecked' [(ngModel)]="menu.isChecked" color="secondary">
+
+      </ion-checkbox>
+      <ion-label>{{menu.type}}</ion-label><br>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group value="biff">
+        <h3>Diet Type</h3>
+         <ion-item>
+          <ion-label>vegitarian</ion-label>
+          <ion-radio ngDefaultControl (click)="dietType('Veg')" slot="start" value="veg"></ion-radio>
+         </ion-item>
+         <ion-item>
+          <ion-label>Non vegitarian</ion-label>
+          <ion-radio ngDefaultControl (click)="dietType('Non veg')"  slot="start" value="nonVeg"></ion-radio>
+         </ion-item>
+      </ion-radio-group>
+    </ion-list>
+</ion-card>
+
+<ion-button  color="secondary" (click)="filter()">Apply</ion-button>
+</ion-content>

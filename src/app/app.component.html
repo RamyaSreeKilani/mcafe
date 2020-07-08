@@ -1,3 +1,36 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<div>
+  <ion-app>
+  <ion-menu side="start" menuId="first" contentId="content1">
+    <ion-header>
+      <ion-toolbar>
+        <ion-item>
+          <ion-label>
+            <div>
+              <img src="../../assets/images/logo1.jpg">
+         </div>
+            </ion-label>
+        </ion-item>
+      </ion-toolbar>
+    </ion-header>
+
+
+<ion-content>
+  <ion-item id="user">Arjun Kandregula</ion-item>
+  <ion-list *ngFor="let page of pages">
+  
+     <ion-menu-toggle auto-hide="true">
+     
+       <ion-item (click)="GoTo(page)">
+         <ion-icon [name]="page.icon" slot="start">
+ 
+         </ion-icon>
+         <ion-label>{{page.pagename}}</ion-label>
+      </ion-item>
+     </ion-menu-toggle>
+  </ion-list>
+</ion-content>
+
+  </ion-menu>
+  <ion-router-outlet id="content1"></ion-router-outlet>
 </ion-app>
+</div>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar id="top">
+    <ion-title><b>ItemDescription</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row id="titleline">
+    <ion-col>
+      <ion-card  class="video-thumbnail">
+        <img src="http://localhost:8000/{{item.image}}">
+          <ion-card-content >
+      <ion-row id="titleline">
+      <ion-col size="7"><b>{{item.title}}</b></ion-col>
+      <ion-col size="3"><b>{{item.points}}</b></ion-col>
+      <ion-col size="2"><ion-icon ion-button color="danger" icon-only size="large" id="heart" name="heart"></ion-icon>
+        <ion-badge id="cart-badge1" class="circular" size="large" color="secondary" (click) ="postLikes(item)" name="checkmark-circle">{{likes}}</ion-badge>
+      </ion-col>
+    </ion-row>
+      <ion-row>
+       <b>Description :</b> &nbsp;&nbsp;   {{item.description}}
+      </ion-row>
+      <ion-row>
+       <b>Meal Type :</b> &nbsp;&nbsp;   {{item.mealType}}
+      </ion-row>
+      <ion-row>
+         <b>Diet Type :</b> &nbsp;&nbsp;  {{item.dietType}}
+      </ion-row>
+      <ion-row>
+        <b>Available Time :</b> &nbsp;&nbsp; {{item.availableTime}}
+      </ion-row>
+      <ion-row>
+        <b>Production Time :</b> &nbsp;&nbsp; {{item.productionTime}}
+      </ion-row>
+      <ion-button color="secondary"  (click)="PostOrUpdateOnSubmit()" size="small">Add</ion-button>
+    </ion-card-content>
+</ion-card>
+</ion-col>
+</ion-row>
+
+
+</ion-content>

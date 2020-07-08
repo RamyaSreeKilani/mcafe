@@ -1,0 +1,74 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  #m{
+    
+    color: rgb(29, 102, 50);
+  }
+  #f{
+    
+    color: rgb(241, 117, 15);
+  }
+  #t{
+    
+    color: rgb(54, 168, 197);
+  }
+  
+  
+  // .title{
+  //   margin-left: 45px;
+  // }
+  // #points{
+  //   color: rgb(6, 102, 6);
+  // }
+  ion-content{
+    --ion-background-color:rgb(218, 220, 221);
+  }
+  ion-card.cards{
+    --ion-background-color: hsl(0, 0%, 100%);
+    height: 55px;
+  
+  }
+  #top{
+    --ion-background-color:rgb(74, 193, 236);
+    }
+    #poi{
+
+      color: black;
+      font-weight: bold;
+
+    }
+    #ti{
+      color: black;
+    }
+    #date{
+      color: rgb(35, 92, 197);
+      font-weight: bold;
+    }
+    #De{
+      color: red;
+    }

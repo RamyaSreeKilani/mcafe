@@ -1,0 +1,367 @@
+<ion-spinner id="spinner" *ngIf="shows" duration="1000" name="crescent"></ion-spinner>
+
+
+<ion-header> 
+  <ion-toolbar id="top" >
+    <ion-title><b>Profile</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- <ion-header class="header" >
+  <ion-toolbar>
+    <ion-icon name="arrow-back-circle" class="backicon"  (click)="back()" ></ion-icon> 
+    
+    <ion-title class="title"><b>Profile</b></ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content *ngIf="!shows" class="contents">
+  
+ 
+ <ion-card *ngFor="let emp of selected" class="cards" >
+    
+    <img src="assets/images/logo.png" id="im1"  alt="profile" />
+
+ 
+
+   <!-- <img src="{{emp.userImage}}" id="im" alt="profile" />  -->
+
+          <img src="http://localhost:8000/{{emp.userImage}}"   id="profileimage" alt="profile" /> 
+          <!-- "http://localhost:8000/{{list.image}}" -->
+ </ion-card>
+
+  
+  <ion-card class="cards" *ngFor="let emp of selected" >
+
+    
+
+    <ion-card-content>
+
+      
+
+      <!-- <img src="{{emp.userImage}}" id="im" alt="profile" />   -->
+           
+              
+  
+
+  <ion-card class="cards" >
+
+    <ion-card-content >
+
+      <ion-item>
+        <ion-label>
+          <b>User Name :</b> {{ emp.username }}
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card class="cards">
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>
+          <b>Emp_ID :</b> {{ emp.employeeID }}
+        </ion-label>
+      </ion-item>
+
+
+
+  </ion-card-content>
+
+</ion-card>
+
+<!-- <ion-card class="cards" >
+
+  <ion-card-content>
+
+    <ion-item>
+      <ion-label>
+        Role: 
+      </ion-label>
+    </ion-item>
+
+
+  </ion-card-content>
+
+  </ion-card> -->
+
+  <ion-card class="cards">
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>
+         <b>BirthDay :</b>  {{ emp.dob | date: 'fullDate' }}
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card class="cards">
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label>
+          <b>Anniversary :</b> {{ emp.anniversary  | date: 'fullDate' }}
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+
+  </ion-card>
+<!-- 
+  <ion-list *ngFor="let user of selected" >
+    <ion-item  >
+      <ion-label>{{user.allergies}}</ion-label>
+    </ion-item>
+  </ion-list> -->
+
+
+
+
+  <ion-card >
+
+    <ion-content-card>
+
+      <ion-item (click)="foodPreference()" > <b>Food Preferences </b> &nbsp;&nbsp;<ion-icon id="edit" name="build"></ion-icon> </ion-item>
+     
+
+    </ion-content-card>
+
+  </ion-card>
+
+  <div *ngIf="show" > 
+
+    <fieldset>
+
+  <ion-list *ngFor="let user of selected "  >
+
+      <b>Food allergies : </b>
+      <span *ngFor="let item of user.allergies" >
+        
+        <ion-card>
+
+
+          <ion-card-content>
+
+            <ion-item>{{item}}</ion-item> 
+
+          </ion-card-content>
+
+        </ion-card>
+
+         </span>
+
+
+
+          <b>Food Favourites : </b>
+         <span *ngFor="let item of user.favourites" >
+           
+           <ion-card>
+   
+   
+             <ion-card-content>
+   
+              <ion-item>{{item}}</ion-item>  
+   
+             </ion-card-content>
+   
+           </ion-card>
+   
+            </span> 
+
+            <b>Diet : </b>
+            <span>
+              
+              <ion-card>
+      
+      
+                <ion-card-content>
+      
+              <ion-item>{{user.diet}}</ion-item>  
+      
+                </ion-card-content>
+      
+              </ion-card>
+      
+               </span>
+
+
+               <b> Days : </b>
+               <span *ngFor="let item of user.days" >
+                 
+                 <ion-card>
+         
+         
+                   <ion-card-content>
+         
+                   <ion-item>{{item}}</ion-item> 
+         
+                   </ion-card-content>
+         
+                 </ion-card>
+         
+                  </span>
+
+  </ion-list>
+
+</fieldset>
+
+</div>
+
+
+<div *ngIf="edit" >
+
+  <h1>Edit Your Preferences Below</h1>
+<fieldset>
+
+  <ion-searchbar  #title animated (keyup.enter)="searchItem(title.value)" ></ion-searchbar><ion-button (click)="searchItem(title.value)" >search</ion-button><br>
+  <div *ngIf="message" >
+  <ion-card  *ngFor="let message of message[0]">
+
+    <ion-card-content  >
+
+      {{message.title}} <ion-button (click)="addToItems(message.title)" >Favourites</ion-button>
+
+      <ion-button (click)="addItems(message.title)" >Allergies</ion-button>
+
+    </ion-card-content>
+   
+  </ion-card>
+</div>
+
+  <b>Food Favourites</b>
+  <span *ngFor="let item of tempItem" >
+
+    <ion-row>
+  
+      <ion-col>
+     
+  <ion-card id="card" *ngFor="let items of item.favourites;let i=index">
+  
+    <ion-card-content>
+      <ion-item-sliding>
+       
+       <ion-item> {{items}} 
+    
+       </ion-item>
+        <ion-item-options side="end" >
+       
+          <ion-item-option color="danger" (click)="removeItem(i,'favourites')" style="color: rgb(0, 0, 0);"><ion-icon name="trash" class="icons"  ></ion-icon></ion-item-option>
+        
+        </ion-item-options>
+        
+        </ion-item-sliding>
+  
+  </ion-card-content>
+  </ion-card>
+  
+  
+  
+  </ion-col>
+  
+  </ion-row>
+  
+  </span>
+  
+
+<b>Food Allergies</b>
+
+<span *ngFor="let item of tempItem" >
+
+  <ion-row>
+
+    <ion-col>
+   
+<ion-card id="card" *ngFor="let items of item.allergies;let i=index">
+
+  <ion-card-content>
+    <ion-item-sliding>
+     
+     <ion-item> {{items}} 
+  
+     </ion-item>
+      <ion-item-options side="end" >
+     
+        <ion-item-option color="danger" (click)="removeItem(i,'allergies')" style="color: rgb(0, 0, 0);"><ion-icon name="trash" class="icons"  ></ion-icon></ion-item-option>
+      
+      </ion-item-options>
+      
+      </ion-item-sliding>
+
+</ion-card-content>
+</ion-card>
+
+
+
+</ion-col>
+
+</ion-row>
+
+</span>
+
+
+<form>
+
+  <ion-list>
+  <ion-radio-group value="biff"  (ionChange)="radioevent($event)"  >
+    <ion-list-header>
+      <ion-label>Diet</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Veg</ion-label>
+      <ion-radio type="radio" (click)="deselectDay()" slot="start" value="veg" ></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Nonveg</ion-label>
+      <ion-radio (click)="selectDay()" slot="start" value="non-veg" ></ion-radio>
+    </ion-item>
+
+  </ion-radio-group>
+</ion-list>
+
+<ion-item *ngIf="day">
+  <ion-label>Days you eat Veg</ion-label>
+  <ion-select  multiple="true" name="week" [(ngModel)]="selectedValues" okText="Okay!" cancelText="Close">
+    <ion-select-option value="Monday">Monday</ion-select-option>
+    <ion-select-option value="Tuesday">Tuesday</ion-select-option>
+    <ion-select-option value="Wednesday">Wednesday</ion-select-option>
+    <ion-select-option value="Thursday">Thursday</ion-select-option>
+    <ion-select-option value="Friday">Friday</ion-select-option>
+    <ion-select-option value="Saturday">Saturday</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-button (click)="update()" >Update</ion-button>
+<!-- 
+<ion-item *ngFor="let item of selectedValues">
+
+{{item}}
+
+</ion-item> -->
+
+
+</form>
+
+</fieldset>
+
+</div>
+
+
+</ion-card-content>
+
+</ion-card>
+</ion-content>

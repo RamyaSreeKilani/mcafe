@@ -1,0 +1,50 @@
+<ion-header> 
+  <ion-toolbar id="top" >
+    <ion-title><b>Acknowledgement</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="text" [fullscreen]="true">
+<fieldset class="field" >
+
+        <menu >
+       <h2><b>{{ food.no }}</b></h2>
+           &nbsp; <b class="order" >orderno</b> 
+           </menu>
+     <ion-item>
+       <ion-label><b>Date</b></ion-label>
+      {{date | date: 'shortDate'}}
+    </ion-item>
+    <ion-item>
+       <ion-label><b> {{ food.name }} * {{ food.quantity }}</b></ion-label>
+        {{ food.quantity * food.points }}pts
+      </ion-item>
+      <br><br><br><br> <br><br>
+      <ion-item>
+        <ion-label>
+     <h1><b>Total Bill</b></h1> </ion-label> {{food.quantity*food.points}}pts
+   
+    </ion-item>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-icon id="d" name="checkmark-circle-sharp"></ion-icon>&nbsp;
+      <h1><b>{{food.status}}</b></h1>
+    </ion-item>
+    </ion-card-content>
+    </ion-card>
+     
+    
+    
+      
+</fieldset>
+ <!-- <ion-content>
+    <ion-card>
+      <b> {{food}}</b>
+    </ion-card>
+  </ion-content>  -->
+</ion-content>

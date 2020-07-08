@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>catlog</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngFor ="let item of allCartItems">
+<ion-card>
+<ion-row>
+  <ion-col size="3"><img src="http://localhost:8000/{{item.image}}"></ion-col>
+  <ion-col id="adj" size="3"><b>{{item.title}}</b></ion-col>
+  <ion-col id="adj" size="4">
+   <ion-icon size="small" name="remove-circle" (click)="remove()" ></ion-icon>&nbsp;
+    <b>{{itemsnumber}}</b> &nbsp;
+     <ion-icon size="small" name="add-circle" (click)="add()" ></ion-icon>
+    </ion-col>
+  <ion-col id="adj1" size="2">{{item.points}}pts</ion-col>
+</ion-row>
+</ion-card>
+</ion-content>

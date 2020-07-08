@@ -1,0 +1,26 @@
+[
+    {
+        "imgUrl" : "assets/images/pizza.jpeg",
+        "name"  : "pizza",
+        "description" : "double layer cheese pizza",
+        "points" : 10,
+        "quantity":1
+    },
+
+    {
+        "imgUrl" : "assets/images/burger.jpg",
+        "name"  : "burger",
+        "description" : "burger with spinach",
+        "points" : 20,
+        "quantity":1
+    },
+
+    {
+        "imgUrl" : "assets/images/noodles.jpeg",
+        "name"  : "noodles",
+        "description" : "egg noodles",
+        "points" : 15,
+        "quantity":1
+    }
+
+]

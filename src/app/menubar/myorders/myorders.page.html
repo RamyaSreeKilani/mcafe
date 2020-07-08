@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar id="top">
+    <ion-title><b>My Orders</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content" [fullscreen]="true">
+
+  <ion-card class="cards"  (click)="ramya(item)" class="cards" *ngFor="let item of items">
+    
+      <ion-item>
+        <ion-label>
+        <b>{{item.name}}*{{item.quantity}}</b>
+        </ion-label>
+        
+        {{item.points*item.quantity}}<small>{{debit}}</small>
+        
+      </ion-item>
+
+       <ion-item>
+        <ion-label id="date">
+        {{date | date: 'shortDate'}}
+        </ion-label>
+      <ion-item>
+          {{item.status}}
+    </ion-item>
+    </ion-item>
+
+ </ion-card>
+</ion-content>

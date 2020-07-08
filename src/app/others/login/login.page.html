@@ -1,0 +1,73 @@
+<html class="md">
+ <ion-header [translucent]="true" class="header" >
+
+  <ion-toolbar id="top">
+    <ion-title  style="color:rgb(244, 244, 245)"><b> Miracle Cafe</b> <ion-icon name="fast-food-outline"></ion-icon>
+      </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="" class="contents" >
+
+  <ion-card class="card" >
+  <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title id="title" ><b>Login</b></ion-card-title>
+    </ion-card-header>
+
+
+    <ion-card-content>
+
+      <img src="assets/images/ssslogo.png"  />
+
+      <form [formGroup]="loginForm">
+
+          <ion-item>
+          <ion-label id='i' position="floating">user name</ion-label>
+          <ion-input required [(ngModel)]="byUserName" formControlName="user"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="loginForm.get('user').errors?.required && loginForm.get('user').touched ">
+          <ion-icon name="alert-circle-outline" class="text-danger" ></ion-icon>&nbsp;
+          <p class="text-danger">* userName is required</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">password</ion-label>
+          <ion-input required  [(ngModel)]="byPassword" type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').touched ">
+<ion-icon name="alert-circle-outline" class="text-danger" ></ion-icon>&nbsp;
+
+<p class="text-danger">* password is required</p>
+        </ion-item>
+
+        <ion-item *ngIf="loginForm.get('password').errors?.minlength && loginForm.get('password').touched ">
+          <ion-icon name="alert-circle-outline" class="text-danger" ></ion-icon>&nbsp;
+          <p class="text-danger">* minimum 6 characters are required</p>
+        </ion-item>
+
+
+        <br>
+
+        <ion-button id='i' (click)="getEmployeeByName()">Login</ion-button>
+
+      </form>
+
+      <span *ngIf="valid" class="text-danger" >invalid credentials</span>
+
+    </ion-card-content>
+
+    <input type="hidden" [(ngModel)]="role1" value="{{data.role}}" />
+
+<p *ngFor="let data of data" >{{data.role}}</p>
+
+
+
+  </ion-card>
+
+</ion-content>

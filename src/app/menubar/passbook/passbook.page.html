@@ -1,0 +1,43 @@
+<ion-header> 
+  <ion-toolbar id="top" >
+    <ion-title><b>Passbook</b></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content" [fullscreen]="true">
+  <form>
+    <div>
+      <ion-item>
+        <ion-label><h1><b>Available Points</b></h1></ion-label>
+        <b id="points">{{Points}}</b>
+      </ion-item>
+    </div>
+  
+
+  </form>
+  
+  <ion-card  class="cards" *ngFor="let item of itemss">
+<ion-row>
+   <ion-col size="10">
+    <b id="ti"> {{item.title}}</b>
+  </ion-col>
+  <ion-col size="2">
+     <b id="poi">{{item.Pts}}</b><small id="De">{{Debit}} </small>
+    </ion-col>
+    </ion-row>
+    
+   &nbsp;&nbsp;<small id="date"> {{date | date: 'shortDate'}}</small>
+      
+
+    
+    
+      <!-- <ion-icon id="t" name="time"></ion-icon> -->
+      <!-- <ion-label>Time</ion-label>--> 
+    
+
+  </ion-card>
+  
+</ion-content>
